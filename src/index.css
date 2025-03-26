@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0A0A0A;
+  color: #ffffff;
+}
+
+button {
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* Ensure elements are visible by default */
+.scroll-animate,
+.scroll-animate-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Add animation classes for JavaScript-triggered animations */
+.js-enabled .scroll-animate:not(.animate),
+.js-enabled .scroll-animate-up:not(.animate) {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.js-enabled .scroll-animate.animate {
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.js-enabled .scroll-animate-up.animate {
+  animation: slideUp 1s ease-in-out forwards;
+}
